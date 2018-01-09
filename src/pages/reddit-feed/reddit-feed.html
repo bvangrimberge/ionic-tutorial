@@ -11,6 +11,7 @@
     <ion-list>
         <button ion-item *ngFor="let post of posts" (click)="showPostDetail(post)">
             {{post.data.title}}
+            <ion-icon name="ios-arrow-forward-outline" clear item-end></ion-icon>
         </button>
     </ion-list>
 </ion-content>
