@@ -9,7 +9,7 @@
       
 <ion-content>
     <ion-list>
-        <button ion-item *ngFor="let post of posts">
+        <button ion-item *ngFor="let post of posts" (click)="showPostDetail(post)">
             {{post.data.title}}
         </button>
     </ion-list>

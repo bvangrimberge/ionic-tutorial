@@ -11,6 +11,7 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { redditFeed } from '../pages/reddit-feed/reddit-feed';
+import { redditPostDetail } from '../pages/reddit-feed/detail/reddit-post-detail';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { redditFeed } from '../pages/reddit-feed/reddit-feed';
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
-    redditFeed
+    redditFeed,
+    redditPostDetail
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import { redditFeed } from '../pages/reddit-feed/reddit-feed';
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
-    redditFeed
+    redditFeed,
+    redditPostDetail
   ],
   providers: [
     StatusBar,
