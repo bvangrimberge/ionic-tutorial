@@ -8,6 +8,7 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { redditFeed } from '../pages/reddit-feed/reddit-feed';
+import { CalendarPage } from '../pages/calendar/calendar';
 
 
 @Component({
@@ -32,7 +33,8 @@ export class MyApp {
     this.pages = [
       { title: 'Hello Ionic', component: HelloIonicPage },
       { title: 'My First List', component: ListPage },
-      { title: 'Reddit feed', component: redditFeed}
+      { title: 'Reddit feed', component: redditFeed},
+      {title: 'Calendar', component: CalendarPage }
     ];
   }
 

@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center>{{viewTitle}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <calendar [eventSource]="eventSource"
+    [calendarMode]="calendar.mode"
+    [currentDate]="calendar.currentDate"
+    (onTimeSelected)="onTimeSelected($event)"
+    (onTitleChanged)="onViewTitleChanged($event)"
+    [autoSelect]="calendar.autoSelect"
+    [showEventDetail]="calendar.showEventDetail"
+    step="30"
+    >
+  </calendar>
+</ion-content>

@@ -12,6 +12,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { redditFeed } from '../pages/reddit-feed/reddit-feed';
 import { redditPostDetail } from '../pages/reddit-feed/detail/reddit-post-detail';
+import { CalendarPage } from '../pages/calendar/calendar';
+
+import { NgCalendarModule  } from 'ionic2-calendar';
+
 
 @NgModule({
   declarations: [
@@ -20,12 +24,14 @@ import { redditPostDetail } from '../pages/reddit-feed/detail/reddit-post-detail
     ItemDetailsPage,
     ListPage,
     redditFeed,
-    redditPostDetail
+    redditPostDetail,
+    CalendarPage
   ],
   imports: [
     BrowserModule,
+    NgCalendarModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -34,7 +40,8 @@ import { redditPostDetail } from '../pages/reddit-feed/detail/reddit-post-detail
     ItemDetailsPage,
     ListPage,
     redditFeed,
-    redditPostDetail
+    redditPostDetail,
+    CalendarPage
   ],
   providers: [
     StatusBar,
