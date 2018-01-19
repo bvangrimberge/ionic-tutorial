@@ -15,6 +15,7 @@ import { redditPostDetail } from '../pages/reddit-feed/detail/reddit-post-detail
 import { CalendarPage } from '../pages/calendar/calendar';
 
 import { NgCalendarModule  } from 'ionic2-calendar';
+import { PincodePage } from '../pages/pincode/pincode';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import { NgCalendarModule  } from 'ionic2-calendar';
     ListPage,
     redditFeed,
     redditPostDetail,
-    CalendarPage
+    CalendarPage, PincodePage
   ],
   imports: [
     BrowserModule,
@@ -41,7 +42,8 @@ import { NgCalendarModule  } from 'ionic2-calendar';
     ListPage,
     redditFeed,
     redditPostDetail,
-    CalendarPage
+    CalendarPage,
+    PincodePage
   ],
   providers: [
     StatusBar,
