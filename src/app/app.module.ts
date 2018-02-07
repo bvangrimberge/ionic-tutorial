@@ -3,6 +3,8 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { HttpModule } from '@angular/http'
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { SQLite } from '@ionic-native/sqlite';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
@@ -16,6 +18,9 @@ import { CalendarPage } from '../pages/calendar/calendar';
 
 import { NgCalendarModule  } from 'ionic2-calendar';
 import { PincodePage } from '../pages/pincode/pincode';
+import { DatabaseProvider } from '../providers/database/database';
+import { SqlLiteTestPage } from '../pages/sql-lite-test/sql-lite-test';
+
 
 
 @NgModule({
@@ -26,13 +31,16 @@ import { PincodePage } from '../pages/pincode/pincode';
     ListPage,
     redditFeed,
     redditPostDetail,
-    CalendarPage, PincodePage
+    CalendarPage, 
+    PincodePage,
+    SqlLiteTestPage
   ],
   imports: [
     BrowserModule,
     NgCalendarModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -43,12 +51,15 @@ import { PincodePage } from '../pages/pincode/pincode';
     redditFeed,
     redditPostDetail,
     CalendarPage,
-    PincodePage
+    PincodePage,
+    SqlLiteTestPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    SQLite,
+    DatabaseProvider
   ]
 })
 export class AppModule {}

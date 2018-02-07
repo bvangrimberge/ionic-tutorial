@@ -1,3 +1,21 @@
 page-hello-ionic {
+    .wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
 
+    .account-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height:75px;
+        width:75px;
+        border: 1px solid lightgrey;
+        background-color:cornflowerblue;
+        border-collapse: collapse;
+        border-radius: 5px;
+        margin:5px;
+    }
 }
