@@ -20,12 +20,12 @@ export class DatabaseProvider {
     }).then((db: SQLiteObject) => {
       console.log("Database created");
       this.instance = db;
-        db.executeSql('create table IF NOT EXISTS users(user_id INTEGER PRIMARY KEY, name VARCHAR(32), pincode VARCHAR(32))', {})
+        db.executeSql('create table IF NOT EXISTS users(userId INTEGER PRIMARY KEY, name VARCHAR(32), pincode VARCHAR(32))', {})
           .catch(e => console.log(e));
       })
       .then(() => {
         console.log("Tables created");
-          this.instance.executeSql('select user_id from USERS', []) .then((data) => {
+          this.instance.executeSql('select userId from users', []) .then((data) => {
             console.log("Populating table if necessary...");
             if(data.rows.length <= 0) {
               console.log("No data in user table, inserting record");

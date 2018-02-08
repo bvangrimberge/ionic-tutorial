@@ -8,6 +8,10 @@
 </ion-header>
 
 
-<ion-content padding>
-  <button (click)="callDB()">Click me</button>
+<ion-content>
+ <ion-list>
+      <span ion-item *ngFor="let user of users">
+        {{user.userId}} - {{user.name}} - {{user.pincode}}
+      </span>
+  </ion-list> 
 </ion-content>

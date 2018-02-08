@@ -20,6 +20,7 @@ import { NgCalendarModule  } from 'ionic2-calendar';
 import { PincodePage } from '../pages/pincode/pincode';
 import { DatabaseProvider } from '../providers/database/database';
 import { SqlLiteTestPage } from '../pages/sql-lite-test/sql-lite-test';
+import { AuthenticationProvider } from '../providers/authentication/authentication';
 
 
 
@@ -59,7 +60,8 @@ import { SqlLiteTestPage } from '../pages/sql-lite-test/sql-lite-test';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     SQLite,
-    DatabaseProvider
+    DatabaseProvider,
+    AuthenticationProvider
   ]
 })
 export class AppModule {}

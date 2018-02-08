@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DatabaseProvider } from '../../providers/database/database';
 import { SQLiteObject } from '@ionic-native/sqlite';
+import { AuthenticationProvider } from '../../providers/authentication/authentication';
 
 /**
  * Generated class for the SqlLiteTestPage page.
@@ -16,7 +17,9 @@ import { SQLiteObject } from '@ionic-native/sqlite';
   templateUrl: 'sql-lite-test.html',
 })
 export class SqlLiteTestPage {
-  constructor(public navCtrl: NavController, public navParams: NavParams, public db : DatabaseProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public auth : AuthenticationProvider) {
+
+    /*
     this.db.ready
     .then(() => {
       console.log("SQL Test page : Database ready, checking number of users");
@@ -33,6 +36,18 @@ export class SqlLiteTestPage {
       })
       .catch(e => console.log(e));
       }
-    );
+    )*/
+    this.testUsers();
+  }
+
+
+  users : any;
+  testUsers() {
+    console.log("testing user data...");
+    this.auth.selectUsers().then((data) => {
+      console.log("data received in component");
+      this.users = data;
+      console.log(this.users);
+    });
   }
 }
