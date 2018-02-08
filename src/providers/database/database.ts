@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite'
-import { Storage } from '@ionic/storage';
 /*
   Generated class for the DatabaseProvider provider.
 
@@ -30,6 +29,9 @@ export class DatabaseProvider {
             if(data.rows.length <= 0) {
               console.log("No data in user table, inserting record");
               this.instance.executeSql('INSERT INTO USERS (name, pincode) values ("BVG", "1234")', []);
+              this.instance.executeSql('INSERT INTO USERS (name, pincode) values ("DRT", "2222")', []);
+              this.instance.executeSql('INSERT INTO USERS (name, pincode) values ("TRG", "3333")', []);
+              this.instance.executeSql('INSERT INTO USERS (name, pincode) values ("EDK", "4444")', []);
             }
           });
         }

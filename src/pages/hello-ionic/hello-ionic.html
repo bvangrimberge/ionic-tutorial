@@ -7,38 +7,10 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
-  <div class="wrapper">
-    <div class="account-item" (click)="showPinCodePage()">
-      BVG
-    </div>
-    <div class="account-item" (click)="showPinCodePage()">
-      SVG
-    </div>
-    <div class="account-item" (click)="showPinCodePage()">
-        DTE
-      </div>
-    <div class="account-item" (click)="showPinCodePage()">
-        DDT
-    </div>
-    <div class="account-item" (click)="showPinCodePage()">
-        ALS
-    </div>
-    <div class="account-item" (click)="showPinCodePage()">
-        BVG
-      </div>
-      <div class="account-item" (click)="showPinCodePage()">
-        SVG
-      </div>
-      <div class="account-item" (click)="showPinCodePage()">
-          DTE
+    <div class="wrapper">
+        <div class="account-item" ion-item *ngFor="let user of users" (click)="showPinCodePage(user.userId)">
+          {{user.name}}
         </div>
-      <div class="account-item" (click)="showPinCodePage()">
-          DDT
-      </div>
-      <div class="account-item" (click)="showPinCodePage()">
-          ALS
-      </div>
-  </div>
-</ion-content>
+    </div>
+  </ion-content>

@@ -4,6 +4,7 @@ import { ViewController } from 'ionic-angular/navigation/view-controller';
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 import { ToastController } from 'ionic-angular/components/toast/toast-controller';
 import { Toast } from 'ionic-angular/components/toast/toast';
+import { AuthenticationProvider } from '../../providers/authentication/authentication';
 
 /**
  * Generated class for the PincodePage page.
@@ -21,13 +22,11 @@ export class PincodePage {
 
   codeInput: Array<Number> = [];
 
-  correctCodes: Array<String> = ['1234', '9876', '1111', '2222', '3333', '4444', '5555', '6666', '7777', '8888', '9999'];
-
   triesLeft: number = 3;
 
   toast : Toast;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public loadingCtrl: LoadingController, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public loadingCtrl: LoadingController, public toastCtrl: ToastController, public auth: AuthenticationProvider) {
   }
 
   dismiss() {
@@ -57,9 +56,11 @@ export class PincodePage {
               content: "Logging in..."
             });
             loader.present();
-            this.delay(3000).then(() => {
+            let userId = this.navParams.get('userId');
+            this.auth.authenticate(userId, codeString).then((result) => {
               loader.dismiss();
-              if (this.correctCodes.indexOf(codeString) > -1) {
+              console.log("result of authentication is : " + result);
+              if (result) {
                 this.showToast('Correct code. You are now authenticated.');
                 this.triesLeft = 3;
               } else {

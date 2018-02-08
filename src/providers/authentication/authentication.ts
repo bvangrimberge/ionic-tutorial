@@ -14,17 +14,20 @@ export class AuthenticationProvider {
   }
 
   authenticate(id, pincode) {
+    console.log("authenticating user with id " + id +  " and pincode " + pincode);
     const AUTH_SELECT_USER_BY_ID = "select * from users u where u.userId = ? and u.pincode = ?";
 
-    this.db.ready.then(() => {
-      this.db.instance.executeSql(AUTH_SELECT_USER_BY_ID, [id, pincode]).then((data) => {
+    var promise =  this.db.ready.then(() => {
+      return this.db.instance.executeSql(AUTH_SELECT_USER_BY_ID, [id, pincode]).then((data) => {
+        console.log("Data from authentication attempt : " + JSON.stringify(data));
         return Promise.resolve(data.rows.length > 0);
       });
     });
+    return promise;
   }
 
   selectUsers() {
-    const AUTH_SELECT_USERS = "select * from users";
+    const AUTH_SELECT_USERS = "select userId, name from users";
       var promise =  this.db.ready.then(() => {
         return this.db.instance.executeSql(AUTH_SELECT_USERS, []).then((data) => {
             console.log("transforming data...");
